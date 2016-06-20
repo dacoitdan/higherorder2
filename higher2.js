@@ -12,10 +12,12 @@ function map(arr, callback){
 
 function reduce(arr, callback){
 	var result = arr[0];
-	arr.shift();
-	forEach(arr, function(thing){result = callback(result, thing)});
+	array = arr.slice(1);
+	forEach(array, function(thing){result = callback(result, thing)});
 	return result;
 }
+
+console.log(reduce([1, 2, 3], function(int1, int2){return int1+int2}));
 
 function filter(arr, callback){
 	var result = [];
